@@ -37,6 +37,8 @@ def dump_chrome_trace(
 
     if devices is None:
         devices = ["cuda"]
+    elif isinstance(devices, str):
+        devices = [devices]
 
     global synchronize
     if devices != ["cpu"] and torch.cuda.is_available():
